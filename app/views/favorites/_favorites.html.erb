@@ -1,0 +1,9 @@
+<% if model.favorited_by?(current_user) %>
+	<%= link_to book_favorites_path(model.id), method: :delete, remote: true do %>
+		<span class="glyphicon glyphicon-heart"><%= model.favorites.count%></span>
+	<% end %>
+<% else %>
+	<%= link_to book_favorites_path(model.id), method: :post, remote: true do %>
+		<span class="glyphicon glyphicon-heart-empty"><%= model.favorites.count %></span>
+	<% end %>
+<% end %>
